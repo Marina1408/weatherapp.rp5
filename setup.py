@@ -8,9 +8,9 @@ setup(
 	description="Rp5Weather provider",
 	packages=find_namespace_packages(),
 	entry_points={
-	    '': '',
+	    'weatherapp.provider': 'rp5=weatherapp.rp5.provider:Rp5WeatherProvider',
 	},
 	install_requires=[
-	   'bs4',
+	   'bs4'
 	]
 )
