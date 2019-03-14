@@ -65,7 +65,7 @@ class Rp5WeatherProvider(WeatherProvider):
 	    locations = self.get_locations_rp5(config.RP5_BROWSE_LOCATIONS)
 	    while locations:
 	    	for index, location in enumerate(locations):
-	    		print(f'{index + 1}. {location[0]}')
+	    		self.app.stdout.write(f'{index + 1}. {location[0]} \n')
 
 	    	try:
 	    		selected_index = int(input('Please select location: '))
@@ -96,7 +96,6 @@ class Rp5WeatherProvider(WeatherProvider):
 
 	    self.save_configuration(*location)
 
-	@decorators.timer
 	def get_weather_info(self, page_content):
 	    """ Getting the final result in tuple from site rp5.
 	    """
