@@ -75,10 +75,9 @@ class Rp5WeatherProvider(WeatherProvider):
 	    			self.logger.exception(msg)
 	    		else:
 	    			self.logger.error(msg)	
-	    		raise WeatherProviderError(
-	    	    		 'You have entered the wrong data format! \n'
-	    	    		 'Repeat again, input a number.', 
-	    	    		  name1=self.name).action()
+	    		raise WeatherProviderError(self.app).run(
+	    			           ('You have entered the wrong data format! \n'
+	    			           	'Repeat again, input a number.'), self.name)
 	    	
 	    	try:
 	    		location = locations[selected_index - 1]
@@ -88,9 +87,9 @@ class Rp5WeatherProvider(WeatherProvider):
 	    			self.logger.exception(msg)
 	    		else:
 	    			self.logger.error(msg)	
-	    		raise WeatherProviderError(
-	    	    		'You have entered a non-existent number in the '
-	    		    	'list!\nRepeat again.', name1=self.name).action()
+	    		raise WeatherProviderError(self.app).run(
+	    				    ('You have entered a non-existent number in the'
+	    				    ' list! \nRepeat again.'), self.name)
 
 	    	locations = self.get_locations_rp5(location[1])
 
